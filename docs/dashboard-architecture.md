@@ -1,6 +1,6 @@
 # Agenx Dashboard — Architecture Proposal
 
-> This document is a proposal. Review it and pick an approach before any code is written.
+> **MVP shipped** in `dashboard/` (filesystem mode). GitHub API writes and onboarding wizard are still planned.
 
 ---
 

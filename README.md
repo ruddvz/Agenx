@@ -101,9 +101,11 @@ Agenx/
 │   ├── EXECUTION-PLAN.md
 │   └── PRODUCT-PHASES.md
 │
+├── dashboard/                      ← Next.js agency dashboard (npm run dev)
 ├── docs/
 │   ├── client-voice-skill-template.md  ← Fill this in for every new client
-│   ├── dashboard-architecture.md       ← Dashboard design proposal
+│   ├── dashboard-architecture.md       ← Dashboard design + roadmap
+│   ├── GETTING-STARTED.md
 │   ├── how-to-add-skills.md
 │   ├── skill-template.md
 │   └── design-system-template.md
@@ -245,16 +247,16 @@ Every session ends with a CHANGELOG entry in `clients/[slug]/planning/CHANGELOG.
 
 ---
 
-## 🖥️ Dashboard (Planned)
+## 🖥️ Dashboard
 
-A Next.js dashboard that reads the `clients/` directory via the GitHub API and shows:
-- Client roster with health status
-- Per-client task queue and recent session log
-- Agent library (searchable, filterable)
-- Guided onboarding wizard
-- Alert feed (blocked tasks, stale sessions)
+Next.js app in [`dashboard/`](dashboard/) — reads `clients/` and agent markdown from the repo:
 
-Full architecture proposal: `docs/dashboard-architecture.md`
+```bash
+cd dashboard && npm install && npm run dev
+```
+
+- Portfolio overview, client detail (tasks + changelog), agent library, alerts
+- Architecture: [`docs/dashboard-architecture.md`](docs/dashboard-architecture.md)
 
 ---
 
