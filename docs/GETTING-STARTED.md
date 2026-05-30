@@ -41,7 +41,15 @@ In Claude Code:
 Activate Agency Director. Run a portfolio health check.
 ```
 
-## 6. Onboard a new client
+## 6. Run the dashboard (optional)
+
+```bash
+cd dashboard && npm install && npm run dev
+```
+
+Open http://localhost:3000 for client roster, tasks, agents, and alerts.
+
+## 7. Onboard a new client
 
 ```
 Activate Agency Client Onboarder. I want to onboard a new client.
