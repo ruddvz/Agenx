@@ -161,6 +161,6 @@ Skills are living documents. When you:
 - Find a better way to do something → update the pattern
 - Hit a new "gotcha" → add it to "What NOT to do"
 - Change the tech stack → update the stack section
-- Make a significant decision → log it in `project/decisions.md`
+- Make a significant decision → log it in `planning/decisions.md`
 
 Always update the skill in the same PR as the change that prompted the update.

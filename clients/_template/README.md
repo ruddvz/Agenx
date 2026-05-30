@@ -34,8 +34,8 @@ Skills in `clients/[client-slug]/skills/` override or extend the global agent be
 
 | Skill file | Purpose |
 |---|---|
-| `[client-slug]-voice.md` | Brand voice, terminology, copy rules |
-| `[client-slug]-stack.md` | Tech stack, deployment targets, env vars |
+| `skills/voice.md` | Brand voice, terminology, copy rules |
+| `skills/stack.md` | Tech stack, deployment targets, env vars |
 | [Add more rows] | |
 
 ---
@@ -43,12 +43,11 @@ Skills in `clients/[client-slug]/skills/` override or extend the global agent be
 ## Quick Start
 
 ```bash
-# Copy this client's agents into Claude Code
-cp clients/[client-slug]/agents/*.md ~/.claude/agents/
-
-# Or use the agency install script
+# Install this client's agents + voice/stack skills
 ./scripts/agency-install.sh --client [client-slug] --tool claude-code
 ```
+
+Edit `agents.manifest` to list agent paths (one per line), then run the command above.
 
 ---
 
@@ -58,4 +57,5 @@ cp clients/[client-slug]/agents/*.md ~/.claude/agents/
 |---|---|
 | `planning/ACTIVE.md` | Live task queue |
 | `planning/CHANGELOG.md` | Session handoff log |
-| `planning/EXECUTION-PLAN.md` | Roadmap with checkboxes |
+| `planning/EXECUTION-PLAN.md` | Client roadmap with checkboxes |
+| `agents.manifest` | Agent file paths for `agency-install.sh` |

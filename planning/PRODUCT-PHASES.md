@@ -44,7 +44,7 @@ NEXT:     Phase [X+1] — [Phase Name]
 - [ ] The session has completed Phase 0 (CHANGELOG, ACTIVE, EXECUTION-PLAN read)
 
 ### Exit Conditions (all must be checked before advancing)
-- [ ] **Problem definition** written and stored in `skills/project/decisions.md` (DECISION-001)
+- [ ] **Problem definition** written and stored in `planning/decisions.md` (DECISION-001)
 - [ ] **Target users** identified with at least one specific use case described
 - [ ] **MVP scope** documented — what is in, what is explicitly out
 - [ ] **Competitor research** completed — minimum 3 competitors noted with differentiators

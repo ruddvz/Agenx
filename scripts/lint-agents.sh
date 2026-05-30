@@ -24,13 +24,14 @@ AGENT_DIRS=(
   sales
   spatial-computing
   specialized
-  strategy
   support
   testing
 )
 
 REQUIRED_FRONTMATTER=("name" "description" "color")
 RECOMMENDED_SECTIONS=("Identity" "Core Mission" "Critical Rules")
+# Compact agent schema (marketing, paid-media, some sales/product)
+RECOMMENDED_SECTIONS_ALT=("Role Definition" "Core Capabilities")
 
 errors=0
 warnings=0
@@ -90,12 +91,17 @@ lint_file() {
   local body
   body=$(awk 'BEGIN{n=0} /^---$/{n++; next} n>=2{print}' "$file")
 
+  local has_canonical=false has_compact=false
   for section in "${RECOMMENDED_SECTIONS[@]}"; do
-    if ! echo "$body" | grep -qi "$section"; then
-      echo "WARN  $file: missing recommended section '${section}'"
-      warnings=$((warnings + 1))
-    fi
+    echo "$body" | grep -qi "$section" && has_canonical=true && break
   done
+  for section in "${RECOMMENDED_SECTIONS_ALT[@]}"; do
+    echo "$body" | grep -qi "$section" && has_compact=true && break
+  done
+  if ! $has_canonical && ! $has_compact; then
+    echo "WARN  $file: missing recommended sections (canonical or compact schema)"
+    warnings=$((warnings + 1))
+  fi
 
   # 4. Check file has meaningful content (awk strips wc's leading whitespace on macOS/BSD)
   local word_count

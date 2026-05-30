@@ -70,10 +70,14 @@ Agenx/
 │       ├── project/                ← Project-level skills
 │       │   ├── architecture.md
 │       │   ├── workflows.md
-│       │   ├── decisions.md
+│       │   ├── decisions.md        ← Points to planning/decisions.md
 │       │   └── lifecycle.md        ← 12-phase lifecycle gate
 │       └── specialized/
-│           └── humanizer-bookphysio.md  ← Legacy location (use clients/ now)
+│           └── humanizer-bookphysio.md  ← Legacy pointer (use clients/ now)
+│
+├── planning/                       ← Agency-internal planning
+│   ├── decisions.md                ← Canonical decision log
+│   ├── ACTIVE.md, CHANGELOG.md, EXECUTION-PLAN.md, PRODUCT-PHASES.md
 │
 ├── academic/                       ┐
 ├── design/                         │
@@ -106,7 +110,10 @@ Agenx/
 │
 ├── scripts/
 │   ├── install.sh                  ← Install agents to any AI tool
+│   ├── agency-install.sh           ← Install one client's agents + skills
 │   ├── convert.sh                  ← Generate tool-specific integration files
+│   ├── lint-agents.sh              ← Validate agent frontmatter
+│   ├── generate-agents-index.sh    ← Build docs/AGENTS-INDEX.md
 │   └── setup.sh                    ← Interactive Company OS setup
 │
 ├── integrations/                   ← Generated tool outputs (run convert.sh)
@@ -121,15 +128,23 @@ Agenx/
 
 ## ⚡ Quick Start
 
+Full walkthrough: [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md)
+
 ### 1. Install agents to your AI tool
 
 ```bash
-# Claude Code (recommended)
+# Claude Code / Copilot — work from source (no convert step)
 ./scripts/install.sh --tool claude-code
 
-# Or generate integrations for all tools first
+# Other tools — generate integrations first, then install
 ./scripts/convert.sh
 ./scripts/install.sh
+```
+
+### 1b. Install a client workspace
+
+```bash
+./scripts/agency-install.sh --client bookphysio-in --tool claude-code
 ```
 
 ### 2. Activate the Agency Director
@@ -145,6 +160,7 @@ The Agency Client Onboarder will guide you through a ~20 min intake that produce
 - `clients/[slug]/skills/voice.md` — brand voice and copy rules
 - `clients/[slug]/skills/stack.md` — tech stack profile
 - `clients/[slug]/planning/ACTIVE.md` — first task queue
+- `clients/[slug]/agents.manifest` — agent paths for install script
 - `clients/[slug]/README.md` — client overview with agent roster
 
 ### 4. Set up the Company OS (optional but recommended)

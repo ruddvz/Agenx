@@ -5,6 +5,7 @@ description: |
   constraints for BookPhysio.in. Agents read this before writing any code.
 metadata:
   agenx-client: bookphysio-in
+  last-updated: 2026-05
 ---
 
 # BookPhysio.in — Stack & Technical Standards
@@ -13,46 +14,56 @@ metadata:
 
 | Layer | Technology | Notes |
 |---|---|---|
-| Frontend | [e.g. React 18, Next.js 14] | [e.g. App Router, Tailwind CSS] |
-| Backend | [e.g. Node.js, Laravel, Django] | [e.g. REST / GraphQL] |
-| Database | [e.g. PostgreSQL 15] | [e.g. hosted on Supabase] |
-| Auth | [e.g. Clerk, Auth0, custom JWT] | |
-| Hosting | [e.g. Vercel, AWS, GCP] | [region] |
-| CI/CD | [e.g. GitHub Actions] | |
+| Frontend (web) | React 18, Next.js 14 | App Router, Tailwind CSS |
+| Frontend (mobile) | React Native | Shared patterns with web where practical |
+| Backend | Node.js | REST APIs |
+| Database | PostgreSQL 15 | Relational data for clinics, patients, appointments |
+| Auth | TBD (document in DECISION when locked) | Session/JWT or managed provider |
+| Hosting | TBD | Prefer India-region latency for primary market |
+| CI/CD | GitHub Actions | Lint, test, build on PR; deploy on main |
 
 ---
 
 ## Required Environment Variables
 
 ```
-[LIST_ENV_VARS_HERE]
+# Names only — never commit values
+DATABASE_URL=
+NEXT_PUBLIC_APP_URL=
+AUTH_SECRET=
+# Add payment, SMS, and storage keys when integrations are confirmed
 ```
 
 ---
 
 ## Code Style
 
-- **Language:** [TypeScript / Python / PHP / etc.]
-- **Formatter:** [Prettier / Black / etc.] — config at [path]
-- **Linter:** [ESLint / Pylint / etc.] — config at [path]
-- **Tests:** [Jest / Pytest / PHPUnit / etc.]
+- **Language:** TypeScript (strict)
+- **Formatter:** Prettier — project config
+- **Linter:** ESLint — project config
+- **Tests:** Jest or Vitest for unit; Playwright for critical E2E flows
 
 ---
 
 ## Non-Negotiables
 
-- [e.g. Never commit secrets]
-- [e.g. Always write tests for new API endpoints]
-- [e.g. All DB migrations must be reversible]
+- Never commit secrets or `.env` files with real values
+- Write tests for new API routes (happy path + auth failure + validation failure)
+- Database migrations must be reversible
+- All user-facing copy must pass `bookphysio-in-voice` skill before merge
+- Indian English (en-IN) in all product strings
 
 ---
 
 ## Deployment
 
-```bash
-# Staging
-[deployment command]
+- Staging smoke test required before production promote
+- Run migrations before application deploy
+- Rollback: revert deploy + migration down only if safe (document in ops runbook)
 
-# Production
-[deployment command]
-```
+---
+
+## Open items
+
+- Lock auth provider and document as DECISION in client or agency `planning/decisions.md`
+- Confirm production hosting region and CDN strategy

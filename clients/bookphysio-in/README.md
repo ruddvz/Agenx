@@ -43,12 +43,10 @@ BookPhysio.in connects patients with physiotherapists across India. The product 
 ## Quick Start
 
 ```bash
-# Copy BookPhysio.in agents into Claude Code (adds global voice skill automatically)
-cp clients/bookphysio-in/skills/voice.md ~/.claude/agents/bookphysio-voice.md
-
-# Or use the agency install script (when built)
 ./scripts/agency-install.sh --client bookphysio-in --tool claude-code
 ```
+
+Installs roster agents plus `bookphysio-in-voice.md` and `bookphysio-in-stack.md` to `~/.claude/agents/`.
 
 ---
 
