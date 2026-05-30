@@ -1,5 +1,5 @@
 ---
-name: humanizer
+name: bookphysio-in-voice
 description: |
   Remove AI-generated writing patterns from BookPhysio.in website copy, support
   text, onboarding flows, emails, SMS/WhatsApp messages, error messages, empty

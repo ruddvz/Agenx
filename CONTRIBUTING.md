@@ -151,6 +151,16 @@ Measurable outcomes:
 Advanced techniques and approaches the agent masters
 ```
 
+### Compact schema (also valid)
+
+Some agents (especially in `marketing/`, `paid-media/`, and parts of `sales/` and `product/`) use a shorter structure:
+
+- **Role Definition** (instead of Identity & Memory)
+- **Core Capabilities** (instead of Core Mission)
+- **Decision Framework** and **Success Metrics**
+
+Both canonical and compact schemas pass `scripts/lint-agents.sh`. Prefer canonical for new agents unless the role is narrow and template-heavy.
+
 ### Agent Structure
 
 Agent files are organized into two semantic groups that map to

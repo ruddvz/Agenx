@@ -94,7 +94,7 @@ clients/[client-slug]/
 ├── planning/
 │   ├── ACTIVE.md               ← seeded with first tasks
 │   └── CHANGELOG.md            ← onboarding session entry written
-└── agents/                     ← list of activated agents documented in README
+└── agents.manifest             ← one agent path per line for agency-install.sh
 ```
 
 ## 🔄 Your Workflow Process

@@ -24,7 +24,7 @@
 - [ ] **0.4** Fill in `skills/project/workflows.md` with real commands
 - [ ] **0.5** Fill in `planning/EXECUTION-PLAN.md` with real phases
 - [ ] **0.6** Set current lifecycle phase in `planning/PRODUCT-PHASES.md` — confirm which of the 12 phases the project is actually in right now
-- [ ] **0.7** Write DECISION entries for any phases already completed before OS was added
+- [x] **0.7** Write DECISION entries for any phases already completed before OS was added
 
 ---
 
