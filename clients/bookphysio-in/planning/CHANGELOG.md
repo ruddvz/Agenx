@@ -6,7 +6,7 @@
 
 ## 2026-05-30 — cursor/fix-audit-gaps-b117 — 0.3: Client workspace remediation
 
-- Commit: (pending)
+- Commit: a6fcb6d (Fix audit gaps: decisions log, agency-install, client workspace)
 - Files touched: skills/stack.md, planning/ACTIVE.md, planning/EXECUTION-PLAN.md, agents.manifest, skills/voice.md (frontmatter)
 - Build: n/a (docs and config)
 - Status: done
